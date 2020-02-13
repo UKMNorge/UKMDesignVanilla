@@ -2,6 +2,7 @@
     "name": "ukmnorge/designvanilla",
     "description": "Wrapper for UKM Design, brukt uten rammeverk",
     "homepage": "http://github.com/UKMNorge/UKMDesignVanilla",
+    "minimum-stability": "dev",
     "authors": [{
             "name": "Asgeir Stavik Hustad",
             "email": "asgeirsh@ukmmedia.no",
