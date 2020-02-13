@@ -24,8 +24,8 @@
         }
     },
     "require": {
+        "ukmnorge/design": "dev-master",
         "twig/twig": "^3.0",
         "symfony/yaml": ">=2.0",
-        "ukmnorge/design": "dev-master"
     }
 }
