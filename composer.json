@@ -1,7 +1,7 @@
 {
     "name": "ukmnorge/designvanilla",
     "description": "Wrapper for UKM Design, brukt uten rammeverk",
-    "homepage": "http://github.com/UKMNorge/UKMDesignVanilla",
+    "homepage": "https://github.com/UKMNorge/UKMDesignVanilla",
     "minimum-stability": "dev",
     "authors": [{
             "name": "Asgeir Stavik Hustad",
@@ -14,10 +14,6 @@
             "role": "Lead Developer"
         }
     ],
-    "repositories": [{
-        "url": "https://github.com/UKMNorge/UKMDesign.git",
-        "type": "git"
-    }],
     "autoload": {
         "psr-4": {
             "UKMNorge\\TemplateEngine\\": "TemplateEngine/"
