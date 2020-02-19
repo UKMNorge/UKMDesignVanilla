@@ -13,11 +13,11 @@ class Vanilla extends TemplateEngine
 {
     public static function init($dir, $cacheDir)
     {
-        parent::init(rtrim($dir, '/') . '/');
+        parent::init($dir);
         static::_initTwig();
 
         // Opprett cache-mappe om den ikke finnes
-        $cacheDir = rtrim($cacheDir, '/').'/ukmdesignbundle/';
+        $cacheDir = static::getPath(). 'ukmdesignbundle/';
         if( !file_exists( $cacheDir ) ) {
             mkdir( $cacheDir, 0777, true );
         }
