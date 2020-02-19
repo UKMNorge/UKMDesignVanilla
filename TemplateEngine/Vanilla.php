@@ -6,20 +6,36 @@ use UKMNorge\Design\Image;
 use UKMNorge\Design\TemplateEngine\Filters;
 use UKMNorge\Design\TemplateEngine\Functions;
 use UKMNorge\Design\UKMDesign;
+use UKMNorge\Design\YamlLoader;
 use UKMNorge\TemplateEngine\Proxy\Twig;
 
 class Vanilla extends TemplateEngine
 {
-    public static function init($dir = null)
+    public static function init($dir, $cacheDir)
     {
         parent::init(rtrim($dir, '/') . '/');
-        static::_initUKMDesign();
         static::_initTwig();
+
+        // Opprett cache-mappe om den ikke finnes
+        $cacheDir = rtrim($cacheDir, '/').'/ukmdesignbundle/';
+        if( !file_exists( $cacheDir ) ) {
+            mkdir( $cacheDir, 0777, true );
+        }
+
+        $yamlLoader = new YamlLoader(
+            $cacheDir,
+            str_replace(
+                'designvanilla/TemplateEngine',
+                'design', 
+                __DIR__ .'/Resources/config/'
+            )
+        );
+        static::_initUKMDesign( $yamlLoader );
     }
 
-    public static function _initUKMDesign()
+    public static function _initUKMDesign( YamlLoader $yamlLoader)
     {
-        UKMDesign::init();
+        UKMDesign::init( $yamlLoader );
 
         UKMDesign::getHeader()::getSeo()
             ->setImage(
