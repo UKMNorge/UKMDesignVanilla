@@ -68,7 +68,7 @@ class TemplateEngine
      * @param TemplateRendererInterface $template_engine
      * @return void
      */
-    public function setTemplateRenderer(TemplateRendererInterface $template_engine)
+    public static function setTemplateRenderer(TemplateRendererInterface $template_engine)
     {
         static::$template_engine = $template_engine;
     }
@@ -78,7 +78,7 @@ class TemplateEngine
      *
      * @return TemplateRendererInterface
      */
-    public function getTemplateRenderer()
+    public static function getTemplateRenderer()
     {
         return static::$template_engine;
     }
