@@ -12,8 +12,8 @@ class TwigFilters {
      */
     function UKMpath( $path ) {
         return str_replace(
-            ['@UKMDesign','UKMDesign','UKMDesignBundle',':'],
-            ['UKMDesign','','','/'],
+            ['@UKMDesign','UKMDesignBundle',':'],
+            ['UKMDesign','','/'],
             $path
         );
     }

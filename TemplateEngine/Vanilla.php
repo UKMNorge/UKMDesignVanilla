@@ -17,13 +17,13 @@ class Vanilla extends TemplateEngine
         static::_initTwig();
 
         // Opprett cache-mappe om den ikke finnes
-        $cacheDir = static::getPath(). 'ukmdesignbundle/';
+        $cacheDir .= 'ukmdesignbundle/';
         if( !file_exists( $cacheDir ) ) {
             mkdir( $cacheDir, 0777, true );
         }
 
         $yamlLoader = new YamlLoader(
-            $cacheDir,
+            static::getPath(),
             str_replace(
                 'designvanilla/TemplateEngine',
                 'design', 
