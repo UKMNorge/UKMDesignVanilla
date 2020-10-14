@@ -2,9 +2,10 @@
  UKMDesign for Vanilla PHP-applikasjoner
 
 ## Installasjon
-`$ composer require ukmnorge/designvanilla`
+- `$ composer require ukmnorge/designvanilla`
+- Opprett mappen `Views`
 
-For å bruke den, må følgende kode inn
+For å bruke den, må følgende kode inn. Eksempelet krever at du oppretter en fil, `Template.html.twig` i `Views`-mappen.
 
 ```php
 <?php
@@ -21,7 +22,7 @@ require_once('UKM/Autoloader.php');
 /**
  * Init Vanilla
  */
-Vanilla::init(__DIR__);
+Vanilla::init(__DIR__, __DIR__.'/cache/');
 
 // Set where we are
 UKMDesign::setCurrentSection(
@@ -36,4 +37,19 @@ UKMDesign::setCurrentSection(
 
 Vanilla::addViewData('key','val');
 echo Vanilla::render('Template');
+```
+
+**Eksempel template-fil**
+```twig
+{% extends ("UKMDesign/Layout/base.html.twig")|UKMpath %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Velkommen</h1>
+        </div>
+   </div>
+</div>
+{% endblock %}
 ```
