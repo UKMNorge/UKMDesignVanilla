@@ -1,6 +1,9 @@
 # UKMDesignVanilla
  UKMDesign for Vanilla PHP-applikasjoner
 
+## Installasjon
+`$ composer require ukmnorge/designvanilla`
+
 For å bruke den, må følgende kode inn
 
 ```php
