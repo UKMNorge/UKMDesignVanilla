@@ -22,7 +22,8 @@ require_once('UKM/Autoloader.php');
 /**
  * Init Vanilla
  */
-Vanilla::init(__DIR__, __DIR__.'/cache/');
+Vanilla::setCacheDir(__DIR__.'/cache/');
+Vanilla::init(__DIR__);
 
 // Set where we are
 UKMDesign::setCurrentSection(

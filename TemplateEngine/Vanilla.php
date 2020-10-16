@@ -2,6 +2,7 @@
 
 namespace UKMNorge\TemplateEngine;
 
+use Exception;
 use UKMNorge\Design\Image;
 use UKMNorge\Design\TemplateEngine\Filters;
 use UKMNorge\Design\TemplateEngine\Functions;
@@ -11,15 +12,27 @@ use UKMNorge\TemplateEngine\Proxy\Twig;
 
 class Vanilla extends TemplateEngine
 {
-    public static function init($dir, $cacheDir)
+
+    static $cacheDir = null;
+
+    public static function setCacheDir( String $cacheDir ) {
+        static::$cacheDir = $cacheDir;
+    }
+
+    public static function init($dir)
     {
+        if( is_null(static::$cacheDir) ) {
+            throw new Exception(
+                'Vanilla::init krever at setCacheDir kjøres først'
+            );
+        }
         parent::init($dir);
         static::_initTwig();
 
         // Opprett cache-mappe om den ikke finnes
-        $cacheDir .= 'ukmdesignbundle/';
-        if( !file_exists( $cacheDir ) ) {
-            mkdir( $cacheDir, 0777, true );
+        static::$cacheDir .= 'ukmdesignbundle/';
+        if( !file_exists( static::$cacheDir ) ) {
+            mkdir( static::$cacheDir, 0777, true );
         }
 
         $yamlLoader = new YamlLoader(
