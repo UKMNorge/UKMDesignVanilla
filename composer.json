@@ -20,7 +20,7 @@
         }
     },
     "require": {
-        "ukmnorge/design": "dev-master",
+        "ukmnorge/design": "dev-designassets-support",
         "twig/twig": "^3.0",
         "symfony/yaml": ">=2.0"
     }
